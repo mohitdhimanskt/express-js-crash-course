@@ -15,3 +15,11 @@ app.set('veiw engine', 'handlbars');
 //Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Homepage Route
+app.get('/', (req, res) =>
+  res.render('index', {
+    title: 'Member App',
+    members
+  })
+);
