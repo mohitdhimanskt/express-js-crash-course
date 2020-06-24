@@ -4,3 +4,11 @@ const exphbs = require('express-handlebars');
 const logger = require('./middleware/logger');
 const members = require('./Members');
 
+const app = express();
+//Init middleware 
+// app.use(logger);
+
+//Handlebars Middleware 
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('veiw engine', 'handlbars');
+
