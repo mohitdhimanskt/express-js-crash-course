@@ -35,3 +35,20 @@ members.push(newMember);
 res.json(members);
 //res.redirect('/');
 });
+//update Member
+router.put('/:id',(req, res)=>{
+  const found = members.some(idFilter(req));
+
+  if (found) {
+    members.forEach((member, i) => {
+      if (idFilter(req)(member)) {
+
+        const updMember = {...member, ...req.body};
+        members[i] = updMember
+        res.json({ msg: 'Member updated', updMember });
+      }
+    });
+  } else {
+    res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+  }
+})
