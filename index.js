@@ -10,7 +10,7 @@ const app = express();
 
 //Handlebars Middleware 
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
-app.set('veiw engine', 'handlbars');
+app.set('view engine', 'handlebars');
 
 //Body Parser Middleware
 app.use(express.json());
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 // Homepage Route
 app.get('/', (req, res) =>
   res.render('index', {
-    title: 'Member App',
+    title: 'Members App',
     members
   })
 );

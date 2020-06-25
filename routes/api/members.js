@@ -3,7 +3,7 @@ const uuid = require('uuid');
 const router = express.Router();
 const members = require('../../Members');
 
-const idFilter = req => members => member.id === parseInt(req.parmas.id);
+const idFilter = req => members => members.id === parseInt(req.params.id);
 
 //Get All Member
 router.get('/',(req, res) => res.json(members));
